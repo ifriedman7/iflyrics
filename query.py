@@ -39,7 +39,7 @@ def main(args):
         Response = requests.get(url)
         Response.raise_for_status
         jsonResponse = Response.json()
-#        print(jsonResponse)
+        strJsonResponse = str(jsonResponse)
     
 #    except urllib.error.HTTPError as err:
 #        print(err.code)
@@ -50,7 +50,7 @@ def main(args):
         
     
     with open('response.txt', 'w', encoding="utf-8") as f:
-        f.write(jsonResponse)
+        f.write(strJsonResponse)
 #        f.write(headers)
 #        f.write(textData)
         
