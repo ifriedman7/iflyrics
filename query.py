@@ -50,7 +50,7 @@ def main(args):
         print(f'Other error occurred: {err}')        
   
     for key, value in jsonResponse.items():
-        print(jsonResponse["track_name"])
+        print(jsonResponse["message"]["body"]["track_list"]["track"]["track_name"])
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
