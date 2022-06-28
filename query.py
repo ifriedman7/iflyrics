@@ -50,11 +50,11 @@ def main(args):
         print(f'Other error occurred: {err}')        
         
     for key, value in jsonResponse.items():
-        print(jsonResponse["track_name"]
-        
+        print(jsonResponse["track_name"])
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
+
         
 #   Not Using urllib module ###        
 #        f.write(headers)
