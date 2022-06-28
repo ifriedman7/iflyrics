@@ -38,7 +38,7 @@ def main(args):
         
         newResponse = requests.get(url)
 #        newResponse.raise_for_status
-        jsonResponse = resp.json()
+        jsonResponse = newResponse.json()
         print(jsonResponse)
     
     except urllib.error.HTTPError as err:
