@@ -33,7 +33,8 @@ def main(args):
         response = urllib.request.urlopen(url)
         headers = str(response.info())
         textData = str(response.read())
-        jsonResponse = response.json()
+        jsonResponse = json.loads(response.data)
+        print(jsonResponse)
     
     except urllib.error.HTTPError as err:
         print(err.code)
