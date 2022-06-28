@@ -41,7 +41,7 @@ def main(args):
         Response.raise_for_status
         jsonResponse = Response.json()
         strJsonResponse = str(jsonResponse)
-        objJsonResponse = json.loads(jsonResponse)
+        objJsonResponse = json.loads(strJsonResponse)
 #   Not Using urllib module ###    
 #    except urllib.error.HTTPError as err:
 #        print(err.code)
