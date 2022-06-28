@@ -31,24 +31,28 @@ def main(args):
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
     url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&f_lyrics_language=en&apikey=' + myapikey)
     try:
-        response = urllib.request.urlopen(url)
-        headers = str(response.info())
-        textData = str(response.read())
+#        response = urllib.request.urlopen(url)
+#        headers = str(response.info())
+#        textData = str(response.read())
         
         
-        newResponse = requests.get(url)
-#        newResponse.raise_for_status
-        jsonResponse = newResponse.json()
-        print(jsonResponse)
+        Response = requests.get(url)
+        Response.raise_for_status
+        jsonResponse = Response.json()
+#        print(jsonResponse)
     
-    except urllib.error.HTTPError as err:
-        print(err.code)
-        
+#    except urllib.error.HTTPError as err:
+#        print(err.code)
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')
+    except Exception as err:
+        print(f'Other error occurred: {err}')        
         
     
     with open('response.txt', 'w', encoding="utf-8") as f:
-        f.write(headers)
-        f.write(textData)
+        f.write(jsonResponse)
+#        f.write(headers)
+#        f.write(textData)
         
 
 if __name__ == '__main__':
