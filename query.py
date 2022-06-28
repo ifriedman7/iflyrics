@@ -25,7 +25,7 @@ def main(args):
     print("Search query: " + qstring)
     if qstring == "":
         qstring = "car"
-        print("Using default query string: + qstring)
+        print("Using default query string: " + qstring)
        
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
     url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&apikey=' + myapikey)
