@@ -12,6 +12,7 @@ import urllib.parse
 import urllib.request
 import urllib.error
 import requests
+import csv
 import json
 
 
@@ -49,7 +50,7 @@ def main(args):
     except Exception as err:
         print(f'Other error occurred: {err}')        
   
-    for key, value in jsonResponse.items():
+    for item in jsonResponse.items["message"]["body"]["track_list"]["track"]:
         print(jsonResponse.get("track_name"))
     
     with open('response.txt', 'w', encoding="utf-8") as f:
