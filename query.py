@@ -57,9 +57,9 @@ def main(args):
             for k_track_list in v_body:
                 v_track_list = v_body['track_list']
 #                print(v_track_list)
-                for k_track, v_track in v_track_list:
+#                for k_track, v_track in v_track_list:
 #                   v_track = v_track_list['track']
-                    print (v_track)
+#                    print (v_track)
                     
 #    for track in jsonResponse['message'][0]['body'][0]['track_list']['track']:
 #        print (jsonResponse['message'][0]['body'][0]['track_list']['track']['track_name'])
@@ -71,6 +71,10 @@ def main(args):
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
+        
+    with open('tracks.csv', 'w', encoding="utf-8") as f:
+        write = csv.writer(f)
+        write.writerows(v_track_list)
 
         
 #   Not Using urllib module ###        
