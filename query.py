@@ -8,7 +8,9 @@ Usage:
 
 import sys
 import os
-import urllib
+import urllib.parse
+import urllib.request
+import urllib.error
 
 #import urllib2
 import json
