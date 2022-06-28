@@ -25,6 +25,7 @@ def main(args):
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
     url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&apikey=' + myapikey)
 #    webbrowser.open(url)
+    print(qstring)
     response = urllib.request.urlopen(url)
     headers = str(response.info())
     data = str(response.read())
