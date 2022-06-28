@@ -41,7 +41,7 @@ def main(args):
         Response.raise_for_status
         jsonResponse = Response.json()
         strJsonResponse = str(jsonResponse)
-        objJsonResponse = json.loads(strJsonResponse)
+#        objJsonResponse = json.loads(strJsonResponse)
 #   Not Using urllib module ###    
 #    except urllib.error.HTTPError as err:
 #        print(err.code)
@@ -51,11 +51,12 @@ def main(args):
     except Exception as err:
         print(f'Other error occurred: {err}')        
   
-    for message in objJsonResponse['message']:
-        for body in message['body']:
-            for track_list in body['track_list']:
-                for track in track_list['track']:
-                    print (track)
+    for k_message, v_message in jsonResponse.items():
+        for k_body in v_message:
+            print(v_message[k_body])
+#            for k_track_list in v_message['body']:
+#                for track in track_list['track']:
+#                    print (track)
                     
 #    for track in jsonResponse['message'][0]['body'][0]['track_list']['track']:
 #        print (jsonResponse['message'][0]['body'][0]['track_list']['track']['track_name'])
