@@ -26,12 +26,12 @@ def main(args):
     url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&apikey=' + myapikey)
 #    webbrowser.open(url)
     response = urllib.request.urlopen(url)
-    headers = response.info()
-    data = response.read()
+    headers = str(response.info())
+    data = str(response.read())
     
     with open('response.txt', 'w', encoding="utf-8") as f:
-        json.dump(headers, f)
-        json.dump(data, f)
+        f.write(headers)
+        f.write(data)
         
 
 if __name__ == '__main__':
