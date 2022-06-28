@@ -23,7 +23,7 @@ def main(args):
 
     qstring = '+'.join(quote(arg) for arg in args)
     print("Search query: " + qstring)
-    if qstring eq "":
+    if qstring == "":
         qstring = "car"
         print("Using default query string: + qstring)
        
