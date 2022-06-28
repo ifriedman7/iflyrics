@@ -9,7 +9,7 @@ Usage:
 import sys
 import os
 import urllib
-import urllib2
+#import urllib2
 import json
 #import webbrowser
 
