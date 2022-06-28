@@ -60,7 +60,7 @@ def main(args):
 #    for track in jsonResponse['message'][0]['body'][0]['track_list']['track']:
 #        print (jsonResponse['message'][0]['body'][0]['track_list']['track']['track_name'])
         
-    for key, value in jsonResponse.items():
+    for key, value in jsonResponse['message'][0]['body'][0]['track_list'].items():
         print(key, ":", value)
                 
 #        print(jsonResponse.get("track_name"))
