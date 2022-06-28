@@ -9,6 +9,7 @@ Usage:
 import sys
 import os
 import urllib
+
 #import urllib2
 import json
 #import webbrowser
@@ -18,11 +19,11 @@ def main(args):
     def quote(arg):
         if ' ' in arg:
             arg = '"%s"' % arg
-        return urllib.parse.quote_plus(arg)
+        return urllib.quote_plus(arg)
 
     qstring = '+'.join(quote(arg) for arg in args)
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
-    url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&apikey=' + myapikey)
+    url = urllib.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&apikey=' + myapikey)
 #    webbrowser.open(url)
     response = urllib2.urlopen(url)
     headers = response.info()
