@@ -53,8 +53,10 @@ def main(args):
   
     for k_message, v_message in jsonResponse.items():
         for k_body in v_message:
-            print(v_message[k_body])
-#            for k_track_list in v_message['body']:
+            v_body = v_message['body']
+            for k_track_list in v_body:
+                v_track_list = v_body['track_list']
+                print(v_track_list)
 #                for track in track_list['track']:
 #                    print (track)
                     
