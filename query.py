@@ -51,7 +51,7 @@ def main(args):
         print(f'Other error occurred: {err}')        
   
     for message in jsonResponse['message']:
-        for body in message['body']:
+        for body in message[0]:
             for track_list in body['track_list']:
                 for track in track_list['track']:
                     print (track.get('track_name'))
