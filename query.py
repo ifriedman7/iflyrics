@@ -57,8 +57,8 @@ def main(args):
 #                for track in track_list[0]:
 #                    print (track['track_name'])
                     
-    for track in jsonResponse['message']['body']['track_list'][0]:
-        print (jsonResponse['message']['body']['track_list']['track'].get('track_name'))
+    for track in jsonResponse['message'][0]['body'][0]['track_list'][0]['track']:
+        print (jsonResponse['message'][0]['body'][0]['track_list'][0]['track'][0]['track_name'])
                 
 #        print(jsonResponse.get("track_name"))
     
