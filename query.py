@@ -51,17 +51,17 @@ def main(args):
     except Exception as err:
         print(f'Other error occurred: {err}')        
   
-#    for message in jsonResponse['message']:
-#        for body in message[0]:
-#            for track_list in body[0]:
+    for message in jsonResponse['message']:
+        for body in message['body']:
+            for track_list in body['track_list']:
 #                for track in track_list[0]:
-#                    print (track['track_name'])
+                print (track_list)
                     
 #    for track in jsonResponse['message'][0]['body'][0]['track_list']['track']:
 #        print (jsonResponse['message'][0]['body'][0]['track_list']['track']['track_name'])
         
-    for key, value in jsonResponse['message']['body']['track_list'].items():
-        print(key, ":", value)
+#    for key, value in jsonResponse['message']['body']['track_list'].items():
+#        print(key, ":", value)
                 
 #        print(jsonResponse.get("track_name"))
     
