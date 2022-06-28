@@ -50,8 +50,13 @@ def main(args):
     except Exception as err:
         print(f'Other error occurred: {err}')        
   
-    for item in jsonResponse["message"]["body"]["track_list"]["track"].items():
-        print(jsonResponse.get("track_name"))
+    for message in jsonResponse["message"]:
+        for body in message["body"]:
+            for track_list in body["track_list"]:
+                for track in track_list["track"]:
+                    print (track["track_name"])
+                
+#        print(jsonResponse.get("track_name"))
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
