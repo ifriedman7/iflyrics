@@ -50,11 +50,11 @@ def main(args):
     except Exception as err:
         print(f'Other error occurred: {err}')        
   
-    for message in jsonResponse["message"]:
-        for body in message["body"]:
-            for track_list in body["track_list"]:
-                for track in track_list["track"]:
-                    print (track["track_name"])
+    for message in jsonResponse['message']:
+        for body in message['body']:
+            for track_list in body['track_list']:
+                for track in track_list['track']:
+                    print (track.get('track_name'))
                 
 #        print(jsonResponse.get("track_name"))
     
