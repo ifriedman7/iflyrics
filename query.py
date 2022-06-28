@@ -48,7 +48,7 @@ def main(args):
         print(f'HTTP error occurred: {http_err}')
     except Exception as err:
         print(f'Other error occurred: {err}')        
-        
+  
     for key, value in jsonResponse.items():
         print(jsonResponse["track_name"])
     
