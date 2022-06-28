@@ -11,6 +11,7 @@ import os
 import urllib.parse
 import urllib.request
 import urllib.error
+import requests
 import json
 
 
@@ -33,7 +34,11 @@ def main(args):
         response = urllib.request.urlopen(url)
         headers = str(response.info())
         textData = str(response.read())
-        jsonResponse = json.loads(response.data)
+        
+        
+        newResponse = requests.get(url)
+#        newResponse.raise_for_status
+        jsonResponse = resp.json()
         print(jsonResponse)
     
     except urllib.error.HTTPError as err:
