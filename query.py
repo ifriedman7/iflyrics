@@ -28,15 +28,21 @@ def main(args):
         print("Using default query string: " + qstring)
        
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
-    url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&apikey=' + myapikey)
-
-    response = urllib.request.urlopen(url)
-    headers = str(response.info())
-    data = str(response.read())
+    url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&f_lyrics_language=en&apikey=' + myapikey)
+    try:
+        response = urllib.request.urlopen(url)
+        headers = str(response.info())
+        textData = str(response.read())
+        jsonResponse = response.json()
+    
+    except urllib.error.HTTPError as err:
+        print(err.code)
+        
+        
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(headers)
-        f.write(data)
+        f.write(textData)
         
 
 if __name__ == '__main__':
