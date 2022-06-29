@@ -54,11 +54,11 @@ def main(args):
 #                   v_track = v_track_list['track']
 #                    print (v_track)
                     
-#    for track in jsonResponse['message'][0]['body'][0]['track_list']['track']:
-#        print (jsonResponse['message'][0]['body'][0]['track_list']['track']['track_name'])
+    for track in jsonResponse['message']['body']['track_list']['track']:
+        print (jsonResponse['message']['body']['track_list']['track']['track_name'])
         
-    for key, value in jsonResponse['message']['body']['track_list'].items():
-        print(key, ":", value)
+#    for key, value in jsonResponse['message']['body']['track_list'].items():
+#        print(key, ":", value)
                 
 #        print(jsonResponse.get("track_name"))
     
