@@ -57,8 +57,10 @@ def main(args):
 #                print (v_track_name)
     
     track_list = jsonResponse['message']['body']['track_list']
+    n = 0
     for track in track_list:
-        print (track_list[track])
+        print (track_list[n]['track'])
+        n=n+1
         
 #    for key, value in jsonResponse['message']['body']['track_list'].items():
 #        print(key, ":", value)
