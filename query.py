@@ -55,10 +55,10 @@ def main(args):
             v_album_name = track_list[n]['track']['album_name']
             v_artist_name = track_list[n]['track']['artist_name']
             v_share_url = track_list[n]['track']['track_share_url']
-#            print('"' + v_track_name + '","' + v_artist_name + '","' + v_album_name + '","' + v_share_url + '"')
+            row = str('"' + v_track_name + '","' + v_artist_name + '","' + v_album_name + '","' + v_share_url + '"')
             with open('tracks.csv', 'a', encoding="utf-8") as f:
-                write = csv.writer(f)
-                write.writerows(v_track_name, v_artist_name, v_album_name, v_share_url)
+                my_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+                write.writerows(row)
         n=n+1
         
     
