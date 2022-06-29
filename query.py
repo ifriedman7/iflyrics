@@ -8,6 +8,8 @@ Usage:
 
 import sys
 import os
+import datetime
+import time
 import urllib.parse
 import urllib.request
 import urllib.error
@@ -32,6 +34,7 @@ def main(args):
         print("Using default query string: " + qstring)
        
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
+    start_date = time.strptime("2010-01-01", "%Y-%m-%d")
     
     url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&f_lyrics_language=en&apikey=' + myapikey)
     try:
@@ -54,22 +57,25 @@ def main(args):
         #check if song has album
         if "album_id" in track:         
             v_album_id = track_list[n]['track']['album_id']
+            
             #check album release date
             album_get_url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/album.get', '?album_id=' + str(v_album_id) + '&apikey=' + myapikey)
             try:
-                album_response = urllib.request.urlopen(album_get_url)       
+                albumResponse = urllib.request.urlopen(album_get_url)       
             except urllib.error.HTTPError as err:
                 print(err.code)  
-            albumJson = json.loads(album_response.read().decode("utf-8"))
-            print(albumJson['message']['body']['album']['album_release_date'])
-            
-            v_track_name = track_list[n]['track']['track_name'] 
-            v_album_name = track_list[n]['track']['album_name']
-            v_artist_name = track_list[n]['track']['artist_name']
-            v_share_url = track_list[n]['track']['track_share_url']
-            row = str('"' + v_track_name + '","' + v_artist_name + '","' + v_album_name + '","' + v_share_url + '"')
-            with open('tracks.csv', 'a', encoding="utf-8") as f:
-                f.write(row + "\n")
+            albumJson = json.loads(albumResponse.read().decode("utf-8"))
+            albumDateStr = albumJson['message']['body']['album']['album_release_date']
+            albumDateTime = time.strptime(albumDateStr, "%Y-%m-%d")
+            if albumDateTime < start_date:
+                print(albumDateStr)
+                v_track_name = track_list[n]['track']['track_name'] 
+                v_album_name = track_list[n]['track']['album_name']
+                v_artist_name = track_list[n]['track']['artist_name']
+                v_share_url = track_list[n]['track']['track_share_url']
+                row = str('"' + v_track_name + '","' + v_artist_name + '","' + v_album_name + '","' + v_share_url + '"')
+                with open('tracks.csv', 'a', encoding="utf-8") as f:
+                    f.write(row + "\n")
         n=n+1
         
     
