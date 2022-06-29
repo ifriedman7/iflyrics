@@ -61,7 +61,7 @@ def main(args):
             except urllib.error.HTTPError as err:
                 print(err.code)  
             albumJson = json.loads(album_response.read().decode("utf-8"))
-            print(albumJson)
+            print(albumJson['message']['body']['album']['album_release_date'])
             
             v_track_name = track_list[n]['track']['track_name'] 
             v_album_name = track_list[n]['track']['album_name']
