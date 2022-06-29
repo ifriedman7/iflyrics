@@ -49,7 +49,8 @@ def main(args):
         if "album_id" in track:
             v_album_id = track_list[n]['track']['album_id']
             v_track_name = track_list[n]['track']['track_name'] 
-            print(v_track_name + "," + v_album_id)
+            v_album_name = track_list[n]['track']['album_name']
+            print(v_track_name + "," + v_album_name)
         n=n+1
         
     
