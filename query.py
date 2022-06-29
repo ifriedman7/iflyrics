@@ -66,7 +66,14 @@ def main(args):
                 print(err.code)  
             albumJson = json.loads(albumResponse.read().decode("utf-8"))
             albumDateStr = albumJson['message']['body']['album']['album_release_date']
-            albumDateTime = time.strptime(albumDateStr, "%Y-%m-%d")
+            try:
+                albumDateTime = time.strptime(albumDateStr, "%Y-%m-%d")
+            except ValueError:
+                try: 
+                    albumDateTime = time.strptime(albumDateStr, "%Y-%m")
+                except ValueError:
+                    albumDateTime = time.strptime(albumDateStr, "%Y")
+                    
             if albumDateTime < start_date:
                 print(albumDateStr)
                 v_track_name = track_list[n]['track']['track_name'] 
