@@ -32,40 +32,26 @@ def main(args):
     myapikey = 'b593f7edbd42fe8106a2bb85ad4f8f91'
     url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/track.search', '?q_lyrics=' + qstring + '&f_lyrics_language=en&apikey=' + myapikey)
     try:
-#       Using urllib module.    
         response = urllib.request.urlopen(url)
         resHeaders = response.info()
         resBody = response.read()
         jsonResponse = json.loads(resBody.decode("utf-8"))
         strJsonResponse = str(jsonResponse)
 
-   
     except urllib.error.HTTPError as err:
         print(err.code)
 
-     
   
-#    for k_message, v_message in jsonResponse.items():
-#        for k_body in v_message:
-#            v_body = v_message['body']
-#            for k_track_list in v_body:
-#                v_track_list = v_body['track_list']
-#                for k_track in v_track_list[0]:
-#                print(v_track_list)
-                
-#                v_track_name = v_track_list[0]['track']['track_name']
-#                print (v_track_name)
-    
     track_list = jsonResponse['message']['body']['track_list']
     n = 0
     for track in track_list:
-        print (track_list[n]['track']['track_name'])
+        track = track_list[n]['track']
+        if "album_id" in track:
+            v_album_id = track_list[n]['track']['album_id']
+            v_track_name = track_list[n]['track']['track_name'] 
+            print(v_track_name + "," + v_album_id)
         n=n+1
         
-#    for key, value in jsonResponse['message']['body']['track_list'].items():
-#        print(key, ":", value)
-                
-#        print(jsonResponse.get("track_name"))
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
