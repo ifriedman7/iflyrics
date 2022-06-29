@@ -36,7 +36,8 @@ def main(args):
         response = urllib.request.urlopen(url)
         resHeaders = str(response.info())
         resBody = str(response.read())
-        jsonResponse = json.loads(resBody.decode("utf-8"))
+#        jsonResponse = json.loads(resBody.decode("utf-8"))
+        jsonResponse = json.loads(resBody)
 
    
     except urllib.error.HTTPError as err:
