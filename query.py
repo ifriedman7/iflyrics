@@ -59,7 +59,7 @@ def main(args):
     track_list = jsonResponse['message']['body']['track_list']
     n = 0
     for track in track_list:
-        print (track_list[n]['track'])
+        print (track_list[n]['track']['track_name'])
         n=n+1
         
 #    for key, value in jsonResponse['message']['body']['track_list'].items():
@@ -70,9 +70,9 @@ def main(args):
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
         
-    with open('tracks.csv', 'w', encoding="utf-8") as f:
-        write = csv.writer(f)
-        write.writerows(v_track_list)
+#    with open('tracks.csv', 'w', encoding="utf-8") as f:
+#        write = csv.writer(f)
+#        write.writerows(v_track_list)
 
         
 #   Not Using urllib module ###        
