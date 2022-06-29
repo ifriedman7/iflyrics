@@ -50,7 +50,7 @@ def main(args):
             v_body = v_message['body']
             for k_track_list in v_body:
                 v_track_list = v_body['track_list']
-                for k_track, v_track in v_track_list[0]:
+                for k_track in v_track_list[0]:
                     print(v_track_list[0])
 #                    v_track_name = v_track_list[0][k_track]['track_name']
 #                    print (v_track_name)
