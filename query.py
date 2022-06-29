@@ -50,7 +50,9 @@ def main(args):
             v_album_id = track_list[n]['track']['album_id']
             v_track_name = track_list[n]['track']['track_name'] 
             v_album_name = track_list[n]['track']['album_name']
-            print('"' + v_track_name + '","' + v_album_name + '"')
+            v_artist_name = track_list[n]['track']['artist_name']
+            v_share_url = track_list[n]['track']['track_share_url']
+            print('"' + v_track_name + '","' + v_album_name + '","' + v_artist_name + '","' + v_share_url + '"')
         n=n+1
         
     
