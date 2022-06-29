@@ -37,6 +37,7 @@ def main(args):
         resHeaders = response.info()
         resBody = response.read()
         jsonResponse = json.loads(resBody.decode("utf-8"))
+        strJsonResponse = str(jsonResponse)
 
    
     except urllib.error.HTTPError as err:
@@ -63,7 +64,7 @@ def main(args):
 #        print(jsonResponse.get("track_name"))
     
     with open('response.txt', 'w', encoding="utf-8") as f:
-        f.write(jsonResponse)
+        f.write(strJsonResponse)
         
     with open('tracks.csv', 'w', encoding="utf-8") as f:
         write = csv.writer(f)
