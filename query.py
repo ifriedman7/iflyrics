@@ -55,7 +55,7 @@ def main(args):
         if "album_id" in track:         
             v_album_id = track_list[n]['track']['album_id']
             #check album release date
-            album_get_url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/album.get', '?album_id=' + v_album_id + '&apikey=' + myapikey)
+            album_get_url = urllib.parse.urljoin('https://api.musixmatch.com/ws/1.1/album.get', '?album_id=' + str(v_album_id) + '&apikey=' + myapikey)
             try:
                 album_response = urllib.request.urlopen(album_get_url)       
             except urllib.error.HTTPError as err:
