@@ -52,7 +52,7 @@ def main(args):
                 v_track_list = v_body['track_list']
                 for k_track in v_track_list:
 #                    print(v_track_list)
-                    v_track_name = v_track_list[k_track]['track_name']
+                    v_track_name = v_track_list[0][k_track]['track_name']
                     print (v_track_name)
                     
 #    for track in jsonResponse['message']['body']['track_list']['track']:
