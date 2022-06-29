@@ -46,10 +46,10 @@ def main(args):
      
   
     for k_message, v_message in jsonResponse.items():
-        for k_body, v_body in v_message['body']:
-#            v_body = v_message['body']
-            for k_track_list, v_track_list in v_body['track_list']:
-#                v_track_list = v_body['track_list']
+        for k_body in v_message:
+            v_body = v_message['body']
+            for k_track_list in v_body:
+                v_track_list = v_body['track_list']
 #                for k_track in v_track_list[0]:
                 print(v_track_list)
 #                v_track_name = v_track_list[0]['track']['track_name']
