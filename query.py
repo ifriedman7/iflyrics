@@ -57,8 +57,9 @@ def main(args):
             v_share_url = track_list[n]['track']['track_share_url']
             row = str('"' + v_track_name + '","' + v_artist_name + '","' + v_album_name + '","' + v_share_url + '"')
             with open('tracks.csv', 'a', encoding="utf-8") as f:
-                my_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
-                my_writer.writerows(row)
+#                my_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+#                my_writer.writerows(row)
+                f.write(row)
         n=n+1
         
     
