@@ -59,7 +59,7 @@ def main(args):
             with open('tracks.csv', 'a', encoding="utf-8") as f:
 #                my_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 #                my_writer.writerows(row)
-                f.write(row)
+                f.write(row + "\n")
         n=n+1
         
     
