@@ -23,6 +23,9 @@ def main(args):
             arg = '"%s"' % arg
         return urllib.parse.quote_plus(arg)
 
+    if os.path.isfile('tracks.csv'):
+        os.remove('tracks.csv')
+
     qstring = '+'.join(quote(arg) for arg in args)
     print("Search query: " + qstring)
     if qstring == "":
@@ -52,22 +55,19 @@ def main(args):
             v_album_name = track_list[n]['track']['album_name']
             v_artist_name = track_list[n]['track']['artist_name']
             v_share_url = track_list[n]['track']['track_share_url']
-            print('"' + v_track_name + '","' + v_album_name + '","' + v_artist_name + '","' + v_share_url + '"')
+#            print('"' + v_track_name + '","' + v_artist_name + '","' + v_album_name + '","' + v_share_url + '"')
+            with open('tracks.csv', 'a', encoding="utf-8") as f:
+                write = csv.writer(f)
+                write.writerows(v_track_name, v_artist_name, v_album_name, v_share_url)
         n=n+1
         
     
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(strJsonResponse)
         
-#    with open('tracks.csv', 'w', encoding="utf-8") as f:
-#        write = csv.writer(f)
-#        write.writerows(v_track_list)
 
-        
-#   Not Using urllib module ###        
-#        f.write(headers)
-#        f.write(textData)
-        
+
+              
 
 if __name__ == '__main__':
     main(sys.argv[1:])
