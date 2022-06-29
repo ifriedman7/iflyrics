@@ -58,7 +58,7 @@ def main(args):
     
     track_list = jsonResponse['message']['body']['track_list']
     for track in track_list:
-        print (track_list[0]['track'])
+        print (track_list[track])
         
 #    for key, value in jsonResponse['message']['body']['track_list'].items():
 #        print(key, ":", value)
