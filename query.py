@@ -72,7 +72,10 @@ def main(args):
                 try: 
                     albumDateTime = time.strptime(albumDateStr, "%Y-%m")
                 except ValueError:
-                    albumDateTime = time.strptime(albumDateStr, "%Y")
+                    try:
+                        albumDateTime = time.strptime(albumDateStr, "%Y")
+                    except ValueError:
+                        albumDateTime = time.strptime("1900", "%Y")
                     
             if albumDateTime < start_date:
                 print(albumDateStr)
