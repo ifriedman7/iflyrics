@@ -32,7 +32,8 @@ def my_query():
     if os.path.isfile('tracks.csv'):
         os.remove('tracks.csv')
 
-    qstring = '+'.join(quote(arg) for arg in args)
+#    qstring = '+'.join(quote(arg) for arg in args)
+    qstring = args
     print("Search query: " + qstring)
     if qstring == "":
         qstring = "car"
