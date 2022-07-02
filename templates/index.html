@@ -7,14 +7,10 @@
 		<div class="query" >
 		    <h1>iflyrics</h1>
 		    <div "information-content">
-			    <table align="center" style="width: 464px">	
-				    	<tr>
-				    		<td style="width: 349px">{{ args }}</td>
-			    			<td><a id="{{ user_albums_id }}" href="{{ url_for('albums.albums_route', username=username) }}"><button class="btn btn-primary">
-							Search</button></a> </td>
-			    			</td>
-			    		</tr>
-				</table>
+			<form action="/my_query/" method="POST">
+			<button name="forwardBtn" type="submit">Search</button>
+				<input name="query_text">
+				</form>
 			</div>
 		</div>
 

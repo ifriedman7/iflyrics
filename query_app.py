@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 
 """    With Flask as webapp
 """
@@ -21,7 +21,9 @@ app = Flask(__name__, template_folder='templates')
 def app_route():
     return render_template('index.html')
 
-def my_query(args):
+@app.route('/my_query', methods=['POST'])
+def my_query():
+    args = request.form["query_text"]
     def quote(arg):
         if ' ' in arg:
             arg = '"%s"' % arg
