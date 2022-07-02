@@ -11,8 +11,6 @@ import time
 import urllib.parse
 import urllib.request
 import urllib.error
-import requests
-import csv
 import json
 
 
