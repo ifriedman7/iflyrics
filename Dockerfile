@@ -15,4 +15,4 @@ RUN
 # Set default command
 #CMD ["/usr/bin/bash"]
 EXPOSE 3001
-ENTRYPOINT [ "python3", "query.py" ]
+ENTRYPOINT [ "python3", "query_app.py" ]
