@@ -21,7 +21,7 @@ app = Flask(__name__, template_folder='templates')
 def app_route():
     return render_template('index.html')
 
-@app.route('/my_query', methods=['POST'])
+@app.route('/my_query/', methods=['POST'])
 def my_query():
     args = request.form["query_text"]
     def quote(arg):
