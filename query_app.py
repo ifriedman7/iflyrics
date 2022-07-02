@@ -77,7 +77,10 @@ def my_query():
                 try: 
                     albumDateTime = time.strptime(albumDateStr, "%Y-%m")
                 except ValueError:
-                    albumDateTime = time.strptime(albumDateStr, "%Y")
+                    try:
+                        albumDateTime = time.strptime(albumDateStr, "%Y")
+                    except ValueError:
+                        albumDateTime = time.strptime("1900", "%Y")
                     
             if albumDateTime < start_date:
                 print(albumDateStr)
@@ -92,6 +95,7 @@ def my_query():
         
     
     with open('response.txt', 'w', encoding="utf-8") as f:
+        f.write(qstring + "\n")
         f.write(strJsonResponse)
        
     return render_template('index.html')
