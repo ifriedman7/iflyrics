@@ -33,7 +33,8 @@ def my_query():
         os.remove('tracks.csv')
 
 #    qstring = '+'.join(quote(arg) for arg in args)
-    qstring = args
+    qstring = urllib.parse.quote_plus(args)
+
     print("Search query: " + qstring)
     if qstring == "":
         qstring = "car"
