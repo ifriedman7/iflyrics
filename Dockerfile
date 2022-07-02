@@ -9,7 +9,7 @@ RUN apk --update --no-cache add alpine-sdk apache2 apache2-utils libxml2-dev cur
 
 RUN git clone https://github.com/ifriedman7/iflyrics
 WORKDIR iflyrics
-RUN /usr/bin/pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 
 # Set default command
