@@ -5,10 +5,10 @@
 
 	<div>
     	<header></header>	    
-		<div class="results" >
+		<div>
 		    <h1>Results</h1>
-		    <div "information-content">
-	<table id="results_table">
+		    <div class="information-content">
+	<table id="results_table" align="center">
 		{% for row in csv %}
 		<tr>
 		{% for col in row.split(",") %}
