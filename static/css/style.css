@@ -99,8 +99,14 @@ footer{
 	padding: 15px;
 }
 
-.display-table table, th, td {
+.display-table table, td {
     border: 1px solid;
     font-size: 14px;
     background: #37BA97;
+	}
+	th {
+    border: 1px solid;
+    font-size: 14px;
+    background: #2E6DA4;
+    color: white
 }

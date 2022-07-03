@@ -9,6 +9,9 @@
 		    <h1>Results</h1>
 		    <div class="display-table">
 	<table id="results_table" align="center">
+		<tr>
+			<th>Song Title</th><th>Artist Name</th><th>Album Name</th><th>Link to Lyrics</th>
+		</tr>
 		{% for row in csv %}
 		<tr>
 		{% for col in row.split('","') %}
