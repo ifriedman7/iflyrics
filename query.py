@@ -25,8 +25,8 @@ def main(args):
     if os.path.isfile('tracks.csv'):
         os.remove('tracks.csv')
 
-#    qstring = '+'.join(quote(arg) for arg in args)
-    qstring = urllib.parse.quote_plus(args)
+    qstring = '+'.join(quote(arg) for arg in args)
+
     print("Search query: " + qstring)
     if qstring == "":
         qstring = "car"
