@@ -99,8 +99,10 @@ def my_query():
     with open('response.txt', 'w', encoding="utf-8") as f:
         f.write(qstring + "\n")
         f.write(strJsonResponse)
-       
-    return render_template('display.html')
+
+    with open("tracks.csv") as f:   
+        return render_template('display.html', csv=f)
+
 # Listen on external IPs
 # Listen to port 3001 so you can just run 'python app.py' to start the server
 if __name__ == '__main__':

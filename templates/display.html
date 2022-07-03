@@ -8,27 +8,15 @@
 		<div class="results" >
 		    <h1>Results</h1>
 		    <div "information-content">
-        <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
-        <script src="d3.min.js?v=3.2.8"></script>
-
-        <script type="text/javascript"charset="utf-8">
-            d3.text("tracks.csv", function(data) {
-                var parsedCSV = d3.csv.parseRows(data);
-
-                var container = d3.select("body")
-                    .append("table")
-
-                    .selectAll("tr")
-                        .data(parsedCSV).enter()
-                        .append("tr")
-
-                    .selectAll("td")
-                        .data(function(d) { return d; }).enter()
-                        .append("td")
-                        .text(function(d) { return d; });
-            });
-        </script>
-
+	<table id="results_table">
+		{% for row in csv %}
+		<tr>
+		{% for col in row.split(",") %}
+		<td>{{ col }}</td>
+		{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
 			</div>
 		</div>
 
