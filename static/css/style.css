@@ -106,6 +106,7 @@ footer{
 	}
 	th {
     border: 1px solid;
+    text-align: center;
     font-size: 14px;
     background: #2E6DA4;
     color: white
