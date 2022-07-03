@@ -77,7 +77,7 @@ def main(args):
                         albumDateTime = time.strptime("1900", "%Y")
                     
             if albumDateTime < start_date:
-                print(albumDateStr)
+#                print(albumDateStr)
                 v_track_name = track_list[n]['track']['track_name'] 
                 v_album_name = track_list[n]['track']['album_name']
                 v_artist_name = track_list[n]['track']['artist_name']
