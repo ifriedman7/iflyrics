@@ -100,7 +100,7 @@ def my_query():
         f.write(qstring + "\n")
         f.write(strJsonResponse)
        
-    return render_template('results.html')
+    return render_template('display.html')
 # Listen on external IPs
 # Listen to port 3001 so you can just run 'python app.py' to start the server
 if __name__ == '__main__':
