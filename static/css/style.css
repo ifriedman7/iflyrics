@@ -99,3 +99,8 @@ footer{
 	padding: 15px;
 }
 
+.display-table table, th, td {
+    border: 1px solid;
+    font-size: 18px;
+    background: #37BA97;
+}
