@@ -4,8 +4,8 @@
 
 #FROM alpine:3
 FROM python:3.8.10-alpine
-#apache2 apache2-utils python3=~3.8 py3-pip
-RUN apk --update --no-cache add alpine-sdk libxml2-dev curl-dev openrc git bash; \
+#apache2 apache2-utils python3 py3-pip openrc
+RUN apk --update --no-cache add alpine-sdk libxml2-dev curl-dev git bash; \
     rm -rf /var/cache/apk/*; 
 
 RUN git clone https://github.com/ifriedman7/iflyrics
